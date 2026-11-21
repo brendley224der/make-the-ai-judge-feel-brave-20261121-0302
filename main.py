@@ -16,6 +16,9 @@ TEXT = (
 
 
 def main():
+    # Self-check the gate before writing: 1-280 characters, not only whitespace.
+    if not 1 <= len(TEXT) <= 280 or not TEXT.strip():
+        raise SystemExit("entry text must be 1-280 non-whitespace characters")
     out_dir = os.environ.get("OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
